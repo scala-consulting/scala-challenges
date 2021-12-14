@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2bea275-588c-4430-b914-a93bb8ebc105" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/literature/src/main/scala/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biology/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biology/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biology/build.sbt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biology/project/build.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biology/src/main/scala/Main.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +30,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/literature" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/biology" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
