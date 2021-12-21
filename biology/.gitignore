@@ -1,7 +1,0 @@
-*.class
-*.log
-project/target/
-target/
-.bsp/
-.idea/
-
