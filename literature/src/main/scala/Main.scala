@@ -6,10 +6,18 @@ import java.util.concurrent.Executors
 import scala.io.{BufferedSource, Source}
 import scala.sys.exit
 import scala.util.{Failure, Success}
+
+import cats.effect.IO
+
+import java.util.concurrent.Executors
+import scala.concurrent.ExecutionContext
+import cats.effect.unsafe.implicits.global
 //https://raw.githubusercontent.com/benschw/shakespeare-txt/master/shakespeare-hamlet-25.txt
 
 object Main {
   def main(args: Array[String]): Unit = {
+    val cpuPool: ExecutionContext = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(2))
+
     def countWorld(words: String) = IO {
       words.split(" ").length
     }
@@ -18,17 +26,16 @@ object Main {
       line.replace(" ", "").length
     }
 
-    val avgStr = Source.fromURL(args(0)).getLines().mkString(" ").split("\n").map(s =>
-      (for {
-        x <- countWorld(s)
-        y <- countChar(s)
-      } yield {
-        y.toFloat / x.toFloat
-      }).unsafeRunSync()
-    )
+    val result = (for {
+      text <- IO { Source.fromURL(args(0)).getLines().mkString(" ") }
+      words <- countWorld(text).evalOn(cpuPool)
+      chars <- countChar(text).evalOn(cpuPool)
+    } yield {
+      chars.toFloat / words.toFloat
+    }).unsafeRunSync()
 
-    val result = avgStr.sum / avgStr.length
     printf("%.1f\n", result)
+    exit(0)
   }
 
 }
