@@ -3,7 +3,7 @@ import akka.actor.typed.scaladsl.Behaviors
 import scala.concurrent.duration._
 
 case class TableSeat(philosopher: ActorRef[Philosopher.Philosopher_],
-                     leftFork: ActorRef[Fork_],
+                     leftFork: ActorRef[Fork.Fork_],
                      rightFork: ActorRef[Fork.Fork_])
 
 object Philosopher {
