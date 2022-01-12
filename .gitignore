@@ -1,2 +1,7 @@
 *.class
 *.log
+.idea
+literature/.idea
+literature/.bsp
+literature/project/target
+literature/target
